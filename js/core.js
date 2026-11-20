@@ -1,6 +1,6 @@
 /**
  * ============================================================
- * UJIAN DIGITAL SD — Frontend (SPA)
+ * UJIAN DIGITAL SDIT ANNIHAYAH — Frontend (SPA)
  * Semua navigasi di sisi klien; data diambil lewat fetch() ke GAS REST API.
  * ============================================================
  */
@@ -72,7 +72,7 @@ function applyTheme(t) { document.documentElement.setAttribute('data-theme', t);
 function toggleTheme() { const t = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'; applyTheme(t); lsSet('theme', t); Object.values(charts).forEach(c => c && c.update()); }
 function togglePass() { const i = $('inPass'); i.type = i.type === 'password' ? 'text' : 'password'; $('eyeIc').className = i.type === 'password' ? 'bi bi-eye' : 'bi bi-eye-slash'; }
 
-S.pub = { sekolah: 'SD Negeri Nusantara 01', appName: 'Ujian Digital SD', logoUrl: '' };
+S.pub = { sekolah: 'SDIT ANNIHAYAH', appName: 'Ujian Digital SDIT ANNIHAYAH', logoUrl: '' };
 function inisialSekolah() {
   const w = String(S.pub.sekolah || '').split(/\s+/).filter(x => /^[A-Za-z]{3,}$/.test(x) && !/^(negeri|swasta|sdn|sdit)$/i.test(x));
   return (w.length ? w[0].slice(0, 2) : 'SD').toUpperCase();
@@ -164,7 +164,7 @@ async function mulaiApp(dariSesi) {
     ssSet('token', null); show('loadingOverlay', false); show('viewLogin', true);
     if (!dariSesi) toast('Error', e.message, 'danger'); return;
   }
-  document.title = S.cfg.appName || 'Ujian Digital SD';
+  document.title = S.cfg.appName || 'Ujian Digital SDIT ANNIHAYAH';
   S.pub.sekolah = S.cfg.sekolah; S.pub.logoUrl = S.cfg.logoUrl || ''; setLogos();
   show('viewLogin', false);
   if (S.user.peran === 'siswa') { applyTheme('light'); initSiswa(); } else initStaff();
